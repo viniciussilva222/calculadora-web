@@ -1,0 +1,108 @@
+# 🧮 Calculadora Web
+
+Projeto simples de calculadora feito com HTML, CSS e JavaScript.
+
+## 🚀 Funcionalidades
+- Soma
+- Subtração
+- Multiplicação
+- Divisão
+
+## 💻 Tecnologias
+- HTML
+- CSS
+- JavaScript
+- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora</title>
+
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #111;
+  font-family: Arial;
+}
+
+.calculadora {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#display {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: right;
+  padding: 10px;
+}
+
+.botoes {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 10px;
+}
+
+button {
+  height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculadora">
+  <input id="display" disabled>
+
+  <div class="botoes">
+    <button onclick="clicar('7')">7</button>
+    <button onclick="clicar('8')">8</button>
+    <button onclick="clicar('9')">9</button>
+    <button onclick="clicar('/')">÷</button>
+
+    <button onclick="clicar('4')">4</button>
+    <button onclick="clicar('5')">5</button>
+    <button onclick="clicar('6')">6</button>
+    <button onclick="clicar('*')">×</button>
+
+    <button onclick="clicar('1')">1</button>
+    <button onclick="clicar('2')">2</button>
+    <button onclick="clicar('3')">3</button>
+    <button onclick="clicar('-')">-</button>
+
+    <button onclick="clicar('0')">0</button>
+    <button onclick="limpar()">C</button>
+    <button onclick="calcular()">=</button>
+    <button onclick="clicar('+')">+</button>
+  </div>
+</div>
+
+<script>
+function clicar(valor) {
+  document.getElementById('display').value += valor;
+}
+
+function limpar() {
+  document.getElementById('display').value = '';
+}
+
+function calcular() {
+  try {
+    const resultado = eval(document.getElementById('display').value);
+    document.getElementById('display').value = resultado;
+  } catch {
+    alert('Erro na conta');
+  }
+}
+</script>
+
+</body>
+</html>
